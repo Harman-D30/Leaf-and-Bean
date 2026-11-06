@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf & Bean | Tea and Coffee Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav">
+            <a href="#" class="logo">Leaf <span>&</span> Bean</a>
+
+            <button class="menu-btn" id="menuBtn">☰</button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#products">Shop</a>
+                <a href="#brewing">Brewing Guide</a>
+                <a href="#sampler">Sampler</a>
+                <a href="#reviews">Reviews</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="themeBtn" class="small-btn" title="Change theme">☾</button>
+                <button id="favoritesBtn" class="small-btn">♡ <span id="favoriteCount">0</span></button>
+                <button id="cartBtn" class="cart-btn">Cart (<span id="cartCount">0</span>)</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div>
+                    <p class="small-heading">A LITTLE BREAK IN YOUR DAY</p>
+                    <h1>Good tea, good coffee, <span>good moments.</span></h1>
+                    <p>
+                        Explore different types of tea and coffee.
+                        Find your favourite flavour and learn how to prepare it.
+                    </p>
+                    <a href="#products" class="main-btn">Explore Products</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=900" alt="Cup of tea">
+                </div>
+            </div>
+        </section>
+
+        <section class="container section" id="products">
+            <div class="section-heading">
+                <p class="small-heading">OUR COLLECTION</p>
+                <h2>Tea and Coffee</h2>
+                <p>Choose something you would like to try.</p>
+            </div>
+
+            <div class="shop-controls">
+                <input type="text" id="productSearch" placeholder="Search products...">
+
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="Green">Green Tea</option>
+                    <option value="Black">Black Tea</option>
+                    <option value="White">White Tea</option>
+                    <option value="Oolong">Oolong Tea</option>
+                    <option value="Herbal">Herbal Tea</option>
+                    <option value="Matcha">Matcha</option>
+                    <option value="Coffee">Coffee</option>
+                </select>
+
+                <select id="caffeineFilter">
+                    <option value="all">All Caffeine Levels</option>
+                    <option value="High">High Caffeine</option>
+                    <option value="Medium">Medium Caffeine</option>
+                    <option value="Low">Low Caffeine</option>
+                    <option value="None">No Caffeine</option>
+                </select>
+            </div>
+
+            <p id="productMessage" class="message"></p>
+            <div class="product-grid" id="teaGrid"></div>
+        </section>
+
+        <section class="tea-day-section">
+            <div class="container tea-day">
+                <div>
+                    <p class="small-heading">OUR PICK FOR TODAY</p>
+                    <h2>Tea of the Day</h2>
+                    <h3>Darjeeling First Flush</h3>
+                    <p>
+                        A light and refreshing tea with a floral taste.
+                        It is a nice option for a peaceful afternoon.
+                    </p>
+                    <a href="#products" class="main-btn">View Collection</a>
+                </div>
+                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800" alt="Tea cup and tea leaves">
+            </div>
+        </section>
+
+        <section class="container section" id="brewing">
+            <div class="section-heading">
+                <p class="small-heading">MAKE IT PROPERLY</p>
+                <h2>Brewing Guide</h2>
+                <p>Basic brewing information for a better cup.</p>
+            </div>
+
+            <div class="brewing-box">
+                <div class="brewing-image">
+                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800" alt="Tea brewing">
+                </div>
+
+                <div class="brewing-details">
+                    <label for="brewTea">Select a drink</label>
+                    <select id="brewTea">
+                        <option value="green">Green Tea</option>
+                        <option value="black">Black Tea</option>
+                        <option value="white">White Tea</option>
+                        <option value="oolong">Oolong Tea</option>
+                        <option value="herbal">Herbal Tea</option>
+                        <option value="matcha">Matcha</option>
+                        <option value="coffee">Coffee</option>
+                    </select>
+
+                    <div class="brew-info">
+                        <div>
+                            <span>Temperature</span>
+                            <h3 id="brewTemp">80°C</h3>
+                        </div>
+                        <div>
+                            <span>Quantity</span>
+                            <h3 id="brewAmount">2 grams</h3>
+                        </div>
+                        <div>
+                            <span>Steeping time</span>
+                            <h3 id="brewTime">2 minutes</h3>
+                        </div>
+                    </div>
+
+                    <div class="timer-area">
+                        <h2 id="timerDisplay">02:00</h2>
+                        <button id="startTimer" class="main-btn">Start Timer</button>
+                        <button id="resetTimer" class="secondary-btn">Reset</button>
+                        <p id="timerMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sampler-section" id="sampler">
+            <div class="container section">
+                <div class="section-heading">
+                    <p class="small-heading">TRY SOMETHING NEW</p>
+                    <h2>Build Your Own Sampler</h2>
+                    <p>Select any three products to make your own small collection.</p>
+                </div>
+
+                <div class="sampler-box">
+                    <div id="samplerOptions" class="sampler-options"></div>
+                    <div class="sampler-bottom">
+                        <p>Selected: <strong id="samplerCount">0 / 3</strong></p>
+                        <p>Total: <strong id="samplerTotal">₹0</strong></p>
+                        <button id="addSampler" class="main-btn">Add Sampler to Cart</button>
+                    </div>
+                    <p id="samplerMessage" class="message"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section quiz-section">
+            <div class="section-heading">
+                <p class="small-heading">NEED A SUGGESTION?</p>
+                <h2>Find Your Drink</h2>
+                <p>Answer two simple questions to get a recommendation.</p>
+            </div>
+
+            <div class="quiz-box">
+                <form id="teaQuiz">
+                    <label for="quizCaffeine">How much caffeine do you prefer?</label>
+                    <select id="quizCaffeine" required>
+                        <option value="">Choose one</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                        <option value="None">No caffeine</option>
+                    </select>
+
+                    <label for="quizTaste">What kind of flavour do you like?</label>
+                    <select id="quizTaste" required>
+                        <option value="">Choose one</option>
+                        <option value="Fresh">Fresh and light</option>
+                        <option value="Strong">Strong and rich</option>
+                        <option value="Floral">Floral and mild</option>
+                        <option value="Sweet">Sweet and relaxing</option>
+                    </select>
+
+                    <button type="submit" class="main-btn">Get Recommendation</button>
+                </form>
+                <div id="quizResult" class="quiz-result"></div>
+            </div>
+        </section>
+
+        
+        <section class="reviews-section" id="reviews">
+            <div class="container section">
+
+                <div class="section-heading">
+                    <p class="small-heading">YOUR FEEDBACK</p>
+                    <h2>Write a Review</h2>
+                    <p>Share your experience with Leaf & Bean.</p>
+                </div>
+
+                <div class="review-form-box">
+                    <form id="reviewForm">
+
+                        <label for="reviewName">Your Name</label>
+
+                        <input type="text" id="reviewName"placeholder="Enter your name" required>
+
+                        <label for="reviewRating">Your Rating</label>
+                        <select id="reviewRating" required>
+                            <option value="">Select stars</option>
+                            <option value="5">★★★★★ - Excellent</option>
+                            <option value="4">★★★★☆ - Very Good</option>
+                            <option value="3">★★★☆☆ - Good</option>
+                            <option value="2">★★☆☆☆ - Average</option>
+                            <option value="1">★☆☆☆☆ - Poor</option>
+                        </select>
+
+                        <label for="reviewText">Your Review</label>
+                        <textarea id="reviewText" rows="4" placeholder="Write something about your experience..."required></textarea>
+
+                        <button type="submit" class="main-btn">Submit Review</button>
+                    </form>
+                </div>
+
+                <div class="section-heading customer-heading">
+                    <h2>Customer Reviews</h2>
+                    <p>Reviews shared by our visitors.</p>
+                </div>
+
+                <div id="reviewList" class="review-grid">
+                    <p>No reviews yet. Be the first to write one!</p>
+                </div>
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <h2>Leaf <span>&</span> Bean</h2>
+                <p>An Intereactive web of Leaf and Bean.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#products">Shop</a>
+                <a href="#brewing">Brewing Guide</a>
+                <a href="#sampler">Sampler</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 Leaf & Bean.</p>
+        </div>
+    </footer>
+
+    <!-- Cart drawer -->
+    <div class="overlay" id="cartOverlay"></div>
+    <aside class="side-panel" id="cartDrawer">
+        <div class="panel-heading">
+            <h2>Your Cart</h2>
+            <button class="close-btn" id="closeCart">×</button>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-bottom">
+            <h3>Total: <span id="cartTotal">₹0</span></h3>
+            <button id="checkoutBtn" class="main-btn full-btn">Proceed to Checkout</button>
+        </div>
+    </aside>
+
+    <!-- Favorites drawer -->
+    <div class="overlay" id="favoriteOverlay"></div>
+    <aside class="side-panel" id="favoritesPanel">
+        <div class="panel-heading">
+            <h2>Your Favorites</h2>
+            <button class="close-btn" id="closeFavorites">×</button>
+        </div>
+        <div id="favoriteItems"></div>
+    </aside>
+
+    <!-- Checkout modal -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-box">
+            <button class="close-btn modal-close" id="closeCheckout">×</button>
+            <h2>Demo Checkout</h2>
+            <p>This is only a project demonstration. No real payment will be made.</p>
+
+            <form id="checkoutForm">
+                <label for="customerName">Your Name</label>
+                <input type="text" id="customerName" required>
+
+                <label for="customerAddress">Delivery Address</label>
+                <textarea id="customerAddress" rows="3" required></textarea>
+
+                <label for="customerPhone">Phone Number</label>
+                <input type="tel" id="customerPhone" pattern="[0-9]{10}" placeholder="10 digit number" required>
+
+                <h3>Order Total: <span id="checkoutTotal">₹0</span></h3>
+                <button type="submit" class="main-btn full-btn">Place Demo Order</button>
+            </form>
+
+            <div id="checkoutSuccess" class="success-message"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
